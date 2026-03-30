@@ -101,11 +101,12 @@ def ask_llm(prompt):
             "prompt": prompt,
             "stream": False,
             "options": {
+                "num_ctx": 1024, 
                 "temperature": 0.2,
-                "num_predict": 300   # limit output length
+                "num_predict": 200   # limit output length
             }
         },
-        timeout=45
+        timeout=180
     )
 
     if response.status_code != 200:
