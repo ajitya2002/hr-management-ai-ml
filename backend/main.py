@@ -4,7 +4,10 @@ from pypdf import PdfReader
 import rag
 import os
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
+class QueryRequest(BaseModel):
+    query: str
 
 app = FastAPI()
 
@@ -37,9 +40,9 @@ def upload(file: UploadFile = File(...)):
     return {"status": "Document indexed successfully"}
 
 @app.post("/ask")
-def ask(query: str):
+def ask(req: QueryRequest):
     try:
-        answer = rag.ask_question(query)
+        answer = rag.ask_question(req.query)
         return {"answer": answer}
     except Exception as e:
         return {"error": str(e)}
