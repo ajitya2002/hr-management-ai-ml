@@ -4,8 +4,6 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
-    depends_on:
-      - ollama
     mem_limit: 2g
     cpus: 2.0
 
@@ -25,5 +23,6 @@ services:
       - OLLAMA_MAX_LOADED_MODELS=1
       - OLLAMA_KEEP_ALIVE=5m
 
+    
 volumes:
   ollama_data:

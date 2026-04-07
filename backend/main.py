@@ -40,9 +40,9 @@ def upload(file: UploadFile = File(...)):
     return {"status": "Document indexed successfully"}
 
 @app.post("/ask")
-def ask(req: QueryRequest):
+def ask(query: str):
     try:
-        answer = rag.ask_question(req.query)
+        answer = rag.ask_question(query)
         return {"answer": answer}
     except Exception as e:
         return {"error": str(e)}

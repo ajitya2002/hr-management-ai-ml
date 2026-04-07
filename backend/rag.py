@@ -12,7 +12,8 @@ VECTOR_PATH = "vector_db/index.faiss"
 CHUNKS_PATH = "vector_db/chunks.pkl"
 OLLAMA_URL = "http://ollama:11434/api/generate"
 
-MODEL_NAME = "phi3:mini"   # Lightweight model
+MODEL_NAME = "phi3:mini" #Lightweight model
+
 
 # ================================
 # LOAD EMBEDDING MODEL ONCE

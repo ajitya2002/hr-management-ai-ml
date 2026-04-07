@@ -16,9 +16,9 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 
 COPY . .
 
-COPY start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
+ COPY start.sh /usr/local/bin/start.sh
+ RUN chmod +x /usr/local/bin/start.sh
 
-ENTRYPOINT ["/usr/local/bin/start.sh"]
+  ENTRYPOINT ["/usr/local/bin/start.sh"]
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
